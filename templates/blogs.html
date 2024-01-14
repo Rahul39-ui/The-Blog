@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block body %}
+
+<div class="container mt-5">
+    <h3 class="text text-center status" style="color: #293241; position:absolute; top:100px; left: 45vw;">{{ blog_status }}</h3>
+    {% for blog in blogs %}
+        <div class="card mb-4" style="outline:none; border:none; background: rgb(244,244,255);">
+            <div class="card-header d-flex justify-content-between p-4">
+                <h4 class="card-title">{{ blog.blog_title }}</h4>
+                <div class="container buttons px-5">
+                    <a class="btn btn-dark" id="delete" href="/delete/{{ blog.id }}" style="background-color: #EF2D56; border:none;">Delete</a>
+                    <a class="btn btn-dark" id="update" href="/update/{{ blog.id }}" style="background-color: #2FBF71; border:none;">Update</a>
+                </div>
+            </div>
+            <div class="card-body p-4">
+                <h6 class="card-subtitle mb-2 text-muted mb-4" style="font-size:24px;">{{ blog.date }}</h6>
+                <p class="card-text" style="font-size:20px;">{{ blog.blog_content }}</p>
+            </div>
+        </div>
+    {% endfor %}
+</div>
+
+{% endblock body %}

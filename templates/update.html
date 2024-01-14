@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+
+{% block body %}
+<div class="container m-5">
+    <form method='post' action='/update/{{update_blog.id}}'>
+        {% csrf_token %}
+    <div class="form-group">
+        <label for="content" class="py-4 text-primary text-center"><h2>Edit Your Blog Content and Date below</h2></label>
+        <textarea class="form-control" id="content" rows="3" style='font-size: 20px; width: 600px; height: 300px; resize: none;' name="new_content">{{update_blog.blog_content}}</textarea>
+        <input type="date" value="2023-11-18" class="form-control mb-3" id="newdate" name="newdate" style="width:600px;" >
+
+        <button type="submit" class="btn btn-success" style="width:600px; border-radius: 0px; border:none;">Save</button>
+        
+    </div>
+</form>
+</div>
+{% endblock body %}
+    
